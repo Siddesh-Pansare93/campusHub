@@ -1,17 +1,17 @@
 import mongoose from "mongoose";
-import { User } from "./user.model";
 
-const commentSchema = new mongoose.Schema({
-    content : {
-        type : String  , 
-        required : true 
-    } , 
-    likes : {
-        type : Number , 
-        required  :true , 
-        default  :0 
-    }
-} , {tiemStamps : true})
+
+// const commentSchema = new mongoose.Schema({
+//     content : {
+//         type : String  , 
+//         required : true 
+//     } , 
+//     likes : {
+//         type : Number , 
+//         required  :true , 
+//         default  :0 
+//     }
+// } , {timeStamps : true})
 
 const postSchema = new mongoose.Schema({
     content : {
@@ -20,7 +20,7 @@ const postSchema = new mongoose.Schema({
     } , 
     username : { 
         type : mongoose.Schema.Types.ObjectId , 
-        ref : User
+        ref : "User"
     } , 
     upVotes :  {
         type : Number , 
@@ -32,7 +32,7 @@ const postSchema = new mongoose.Schema({
         required : true ,
         default :  0
     } , 
-    comments : [commentSchema] , 
+    // comments : [commentSchema] , 
 
 
 } , {timestamps : true})

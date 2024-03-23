@@ -1,5 +1,4 @@
-import {v2 as clodinary} from "cloudinary" ; 
-import { response } from "express";
+import {v2 as cloudinary} from "cloudinary" ; 
 import fs from "fs"  ; 
 
 

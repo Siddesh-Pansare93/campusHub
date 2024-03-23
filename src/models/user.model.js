@@ -1,8 +1,9 @@
-import mongoose , {Schema} from "mongoose";
+import mongoose  from "mongoose";
 import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt"
+import bcrypt from "bcrypt" ; 
 
-const userSchema  = new Schema({
+
+const userSchema  = new mongoose.Schema({
     name : {
         type : String , 
         required : true
@@ -21,7 +22,7 @@ const userSchema  = new Schema({
         unique : [true  , "Already registered with this email"]
     } , 
     password : {
-        type : true  , 
+        type : String  , 
         required : [true , "Password can't be empty "]
     } ,
     profilePicture : {
@@ -34,12 +35,12 @@ const userSchema  = new Schema({
     } , 
     tweets : {
         type: mongoose.Schema.Types.ObjectId  ,
-        ref : Post 
+        ref : "Post" 
         
     }
 } ,{timestamps:true})
 
-
+// encrpting password beforing save it in Db
 userSchema.pre("save" , async function(next){
     if(!this.ismodified("password")) return next()
 
@@ -47,6 +48,7 @@ userSchema.pre("save" , async function(next){
     next()
 })
 
+// checking if password matches with one that in DB .. (if user tries to logIN)
 userSchema.methods.idPasswordCorrect = async function(){
     return bcrypt.compare(password , this.password)
 }
@@ -64,7 +66,7 @@ userSchema.methods.generateAccessTokens = function(){
         {
            expiresIn :  process.env.ACCESS_TOKEN_EXPIRY
         }
-)
+    )
 }
 userSchema.methods.generateRefreshTokens = function(){
     jwt.sign(

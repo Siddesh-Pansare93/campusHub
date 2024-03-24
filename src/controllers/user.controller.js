@@ -7,24 +7,24 @@ import { uploadOnCloudianary } from "../utils/cloudinary.js";
 
 const registerUser = asyncHandler(async (req ,res) => {
     
-    console.log(req.body)
     const { name , username , email , password } = req.body
-    console.log(email ,username , name , password)
+    // console.log(email ,username , name , password)
 
-    if ([username , email  , password ].some((field)=> fields?.trim()=== "")
+    if ([username , email  , password ].some((fields)=> fields?.trim()=== "")
         ) {
         throw new ApiError(400 ,  "All fields are required")  ; 
     }
     
     const existedUser = await User.findOne({
-        $or : ["username" , "email"]
+        $or : [{username} , {email}]
     })
 
     if (existedUser) {
         throw new ApiError(409 , "User ALready exists")
     }
 
-    const profilePictureLocalPath = req.files?.[0]?.path ; 
+    const profilePictureLocalPath = req.files?.profilePicture[0]?.path ; 
+    
 
     if (!profilePictureLocalPath) {
         throw new ApiError (400 , "profile picture required")
@@ -32,16 +32,18 @@ const registerUser = asyncHandler(async (req ,res) => {
     
     const profilePicture = await uploadOnCloudianary(profilePictureLocalPath) ; 
 
-    await User.create(
+
+    const user = await User.create(
         {
             name , 
-            username : username.toLowercase(), 
+            username : username.toLowerCase(), 
             profilePicture : profilePicture.url , 
-            password 
+            password  , 
+            email 
         }
     )
 
-    const createdUser = await User.findById(User._id).select("-password -refreshTokens")
+    const createdUser = await User.findById(user._id).select("-password -refreshTokens")
 
     if (!createdUser) {
         throw new ApiError(500 , "Something went wrong while registering User")

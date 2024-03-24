@@ -30,8 +30,7 @@ const userSchema  = new mongoose.Schema({
         required :true 
     } ,
     refreshToken : {
-        type : String  , 
-        required : true 
+        type : String  
     } , 
     tweets : {
         type: mongoose.Schema.Types.ObjectId  ,
@@ -42,7 +41,7 @@ const userSchema  = new mongoose.Schema({
 
 // encrpting password beforing save it in Db
 userSchema.pre("save" , async function(next){
-    if(!this.ismodified("password")) return next()
+    if(!this.isModified("password")) return next()
 
     this.password = await bcrypt.hash(this.password , 10)
     next()

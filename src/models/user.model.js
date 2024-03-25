@@ -48,16 +48,16 @@ userSchema.pre("save" , async function(next){
 })
 
 // checking if password matches with one that in DB .. (if user tries to logIN)
-userSchema.methods.idPasswordCorrect = async function(){
+userSchema.methods.idPasswordCorrect = async function(password){
     return bcrypt.compare(password , this.password)
 }
 
 // generating jwt ( access and refresh ) Tokens 
 
 userSchema.methods.generateAccessTokens = function(){
-    jwt.sign(
+    return jwt.sign(
         {
-            id:this._id , 
+            _id:this._id , 
             username : this.username ,
             email  : this.email
         } ,
@@ -68,9 +68,9 @@ userSchema.methods.generateAccessTokens = function(){
     )
 }
 userSchema.methods.generateRefreshTokens = function(){
-    jwt.sign(
+    return jwt.sign(
         {
-            id:this._id , 
+            _id:this._id , 
             
         } ,
         process.env.REFRESH_TOKEN_SECRET , 

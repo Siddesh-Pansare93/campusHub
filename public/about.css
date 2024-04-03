@@ -1,0 +1,467 @@
+* {
+    margin: 0px;
+    padding: 0px;
+
+}
+
+body {
+    background-color: #eef8ff;
+    
+    
+}
+ /* navbar */
+
+.nav-bar {
+    height:9vh;
+    width: 100%;
+    background: linear-gradient(to right , #00093c , #2d0b00);
+    position: fixed;
+    top: 0;
+    border-bottom: 1px solid #fff;
+    z-index:1 ;
+    display:flex  ;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-bar h4 {
+    padding: 20px 0px;
+    margin-right: 5rem;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 1700;
+}
+
+
+.items-container{
+    display:flex;
+    margin-left: 25px;
+}
+.items-container a{
+    margin: 10px 50px 10px  0;
+    padding: 10px 20px; 
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    transition:  0.5s;
+}
+
+.items-container a:hover{   
+    transform: scale(1.05);
+    /* background-color: #2d0b00; */
+    border:2px solid white;
+    border-radius: 1.5rem ;
+    background-color: #ccc;
+    color: black ;
+}
+
+.item-container-2 {
+    display:flex;
+    /* justify-content: space-between; */
+    margin-right: 0.5rem;
+}
+
+.item-container-2 a {
+    text-decoration: none;
+    margin-left: 1.5rem ; 
+    color :white ; 
+    font-size :1.2rem ;
+    padding: 0.5rem;
+    
+    border-radius : 1rem ;
+    transition : ease-in 0.3s ;
+}
+
+.item-container-2 a:hover {
+    transform : scale( 1.1) ;
+    background-color: #00093c;
+    border : 2px solid rgb(63, 81, 154) ;
+    
+}
+
+
+
+.section-container {
+    margin-top: 75px; 
+    background: linear-gradient(to right , #00093c , #2d0b00); /* Added linear gradient background */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+
+    
+}
+
+.section1::before{
+    content: "";
+    position: absolute;
+    top: 5rem;
+    left: 75rem;
+    width: 10rem;
+    height: 10rem;
+    background: url("../assets/logo.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+.section1 {
+    height: 450px;
+    width: 100%;
+    background: linear-gradient(to right , #00093c , #2d0b00); /* Added linear gradient background */
+    margin-bottom: 30px;
+    margin-top: 175px; /* ye margin section-container ke respect me h*/
+}
+
+.section1 .h1{
+    margin-top: 25px;
+    font-size: 40px;
+    color : #fff ;
+    font-family: Arial, sans-serif;
+    margin: 0 0 27px;
+
+
+}
+
+.section1  p{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    display: block;
+   
+} 
+.text{
+    display: flex;
+    color: #fff;
+}
+.text-block{
+    padding-left: 15px;
+    padding-right: 15px;
+    max-width: 972px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* section2  */
+
+.section2 {
+    height: 450px;
+    border: 2px solid white;
+    border-radius: 100px;
+    background-color: #00093c;
+    margin: 2rem;
+    
+}
+
+.section2 h1 {
+    margin-top: 2rem;
+    color :#fff ;
+}
+.card-container{
+    display:flex;
+    justify-content:space-evenly;
+    margin-top : 5rem ;
+}
+
+.card-container:hover > :not(:hover){
+    opacity: 0.4;
+}
+.cards{
+    border-radius: 15px;
+    padding: 36px 43px 48px;
+    width: 200px;
+    height: 120px;
+    background-color: white;
+    box-shadow: 1px 2px 5px white ;
+    transition: all 0.3s;   /*koi bhi transition hogi cards ke upar wo 0.3s me hogi */
+}
+.cards:hover{
+    transform: scale(1.10); /*Zoom krne ke liye scale  */
+    cursor: pointer;
+    border-radius: 15px solid;
+}
+.cards p{
+    margin: 10px 0px 0px 0px;
+    margin-top: 35px;   
+    font-size: 14px;
+}
+
+/* section3  */
+
+.section3{
+    height :500px ;
+    margin-top: 100px;
+    background-color: #00093c;
+    border: 2px solid white;
+    border-radius: 100px;
+    margin: 5rem 2rem 0rem 2rem;
+}
+
+.section3 h1 {
+    margin-top : 2.5rem ; 
+    color :#fff
+}
+.quadcards{
+    height: 500px;
+    display:flex;
+    justify-content:space-evenly;
+    margin-top : 5rem ;
+}
+
+/* .quadcards:hover :not(:hover){
+    opacity: 0.4;
+} */
+
+
+
+.material-symbols-outlined{
+    color: #ff4500;
+}
+
+#views{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 45px;
+    color: #ff4500;
+}
+
+#views2{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:15px;
+    margin-bottom: 20px;
+}
+
+
+/* footer */
+.footer{
+    width: 100%;
+    bottom: 0;
+    /* background: linear-gradient(to right , #00093c , #2d0b00); */
+    background-color :rgb(25, 31, 55) ;
+    color: #fff;
+    padding: 100px 0 30 px;
+    font-size: 13px;
+    line-height: 20px;
+    margin-top: 20rem;  
+    border-top :2px solid white  ; 
+    position: relative;
+    bottom : 0 ; 
+
+}
+
+
+.row{
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.col{
+    flex-basis: 25%;
+    padding: 10px;
+    
+}
+.col:nth-child(2) , .col:nth-child(3){
+    flex-basis: 15%;
+
+}
+.logo{
+    width: 80px;
+    margin-bottom: 30px;
+}
+
+.col h3{
+    
+    margin-bottom: 40px;
+    font-size: 1.5rem;
+    
+
+}
+
+.col p {
+    text-align: start;
+    font-size: 0.85rem;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.E-mail{
+    width: fit-content;
+    border-bottom: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+ul li{
+    list-style: none;
+    margin-bottom: 12px;
+
+}
+ul li a{
+    font-size: 1rem;
+    text-decoration: none;
+    color: #fff;
+    
+
+}
+form{   
+    padding-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;  /*email ke neeche ke line ke liye */
+    margin-bottom: 50px;
+}
+
+form .fa-regular{
+    font-size: 18px;
+    margin-right: 10px;
+
+}
+form input{
+    width: 100%;
+    background: transparent;
+    color: #fff;
+    border: 0;
+    outline: none;
+
+}
+
+form button{
+    background: transparent;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+
+}
+footer button .fa-solid{
+    font-size:16px;
+    color:#ccc;
+
+}
+.social-icons .fa-brands{
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    color: #000;
+    background: #fff;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+hr{
+    width: 90%;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    margin: 20px auto;
+}
+.copyright{
+    letter-spacing: 1px ;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* .footer--wrapper{
+    margin-top: 110vh;
+    background-color: #181818;
+    border-top: 1px solid #3a3a3a;
+    padding-top: 4.5rem;
+    padding-bottom: 4.2rem;
+    position: relative;
+    width: 100vw;
+    height: 26.13vw;
+    position: fixed;
+    width: 153.55vw;
+    bottom: 0;
+} */

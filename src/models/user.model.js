@@ -27,7 +27,7 @@ const userSchema  = new mongoose.Schema({
     } ,
     profilePicture : {
         type : String  ,   // cloudinary url
-        required :true 
+        // required :true 
     } ,
     refreshToken : {
         type : String  

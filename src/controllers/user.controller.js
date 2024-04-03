@@ -20,7 +20,7 @@ const generateAccessAndRefreshToken  = async( userId ) => {
 
 
 
-const registerUser = asyncHandler(async (req ,res) => {
+const registerUser = asyncHandler(async (req ,res , next) => {
     //req.body 
     //check all fields are there
     //check if user already exists 
@@ -31,6 +31,9 @@ const registerUser = asyncHandler(async (req ,res) => {
     //return res to user 
 
     const { name , username , email , password } = req.body
+    console.log(req.body)
+    console.log(req.files)
+    console.log(name  , username  , email )
     
 
     if ([username , email  , password ].some((fields)=> fields?.trim()=== "")
@@ -41,40 +44,51 @@ const registerUser = asyncHandler(async (req ,res) => {
     const existedUser = await User.findOne({
         $or : [{username} , {email}]
     })
+    
 
     if (existedUser) {
         throw new ApiError(409 , "User ALready exists")
     }
 
-    const profilePictureLocalPath = req.files?.profilePicture[0]?.path ; 
+    // const profilePictureLocalPath = req.files?.profilePicture[0]?.path ; 
     
 
-    if (!profilePictureLocalPath) {
-        throw new ApiError (400 , "profile picture required")
+    let profilePictureLocalPath ; 
+    if(req.files && Array.isArray(req.files.profilePicture) && req.files.profilePicture.length > 0){
+        profilePictureLocalPath  = req.files.profilePicture[0].path ;
     }
+
+    console.log(profilePictureLocalPath);
     
-    const profilePicture = await uploadOnCloudianary(profilePictureLocalPath) ; 
+    const profilePicture = await uploadOnCloudianary(profilePictureLocalPath) ;
+
+     
 
 
     const user = await User.create(
         {
             name , 
             username : username.toLowerCase(), 
-            profilePicture : profilePicture.url , 
+            profilePicture : profilePicture?.url || "" , 
             password  , 
             email 
         }
     )
 
     const createdUser = await User.findById(user._id).select("-password -refreshTokens")
-
+        console.log(createdUser)
     if (!createdUser) {
         throw new ApiError(500 , "Something went wrong while registering User")
     }
-    
+
+
+    next()
+    res.render("login.ejs" , {createdUser})
     return res.status(201).json(
         new ApiResponse(200 , createdUser , "User Registered Sucessfully")
     )
+    
+
 })
 
 const loginUser = asyncHandler(async (req , res ) => {
@@ -108,7 +122,7 @@ const loginUser = asyncHandler(async (req , res ) => {
     }
 
     const { refreshToken , accessToken } = await generateAccessAndRefreshToken(user._id)
-
+    console.log("refreshToken is  : " , refreshToken)
     const loggedInuser = await User.findById(user._id).select(
         "-password -refreshToken"
     )
@@ -117,16 +131,18 @@ const loginUser = asyncHandler(async (req , res ) => {
             httpOnly : true, 
             secure : true
         }
-
-    res
+    // res.render("home.ejs")
+    return res
     .status(200)
     .cookie( "accessToken" ,accessToken ,options )
     .cookie( "refreshToken" , refreshToken  ,options )
+    .render("home.ejs" , {loggedInuser})
     .json(
         new ApiResponse (
             200 , loggedInuser  , "User Logged In Succesfully"
         )
     )
+    // .render("logout.ejs")
 })
 
 
@@ -207,6 +223,7 @@ const changeCurrentPassword = asyncHandler(async (req ,res) => {
     const {oldPassword  , newPassword }  = req.body
 
     const user = await User.findById(req.user?._id)
+    
 
     const isPasswordCorrect = await user.isPasswordCorrect(oldPassword)
 
@@ -295,6 +312,11 @@ const updateProfilePicture  = asyncHandler(async(req , res ) => {
 
 })
 
+const createPost = asyncHandler(async(req ,res)=>{
+    const user = req.user?._id
+    console.log(user);
+})
+
 export {
     registerUser , 
     loginUser,
@@ -303,5 +325,6 @@ export {
     changeCurrentPassword ,
     getCurrentUser ,
     updateAccountDetails ,
-    updateProfilePicture
+    updateProfilePicture ,
+    createPost
  }

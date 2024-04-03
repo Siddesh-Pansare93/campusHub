@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <h1>Hi Welcome to campus Hub </h1>
+    <form action="/api/v1/users/create" method="post">
+        <input type="text">
+        <button>create new post</button>
+
+            <!-- <input type="text" name="username">
+            <input type="email" name="email"> 
+            <input type="password" name="password">
+            <button>submit</button> -->
+    </form> 
+
+    
+    <h1>User details</h1>
+    <h4>Username : <%= loggedInuser %></h4>
+
+    <form method="post" action="/api/v1/users/logout">
+        <button>Logout</button>
+    </form>
+
+</body>
+</html>

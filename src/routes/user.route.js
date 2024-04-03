@@ -21,7 +21,7 @@ router.route("/register").get( registerForm )
 router.route("/login").get( loginForm )
 
 
-router.route("/create").post( verifyJWT, createPost)
+// router.route("/create").post( verifyJWT, createPost)
 
 // secured Routes 
 

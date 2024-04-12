@@ -8,21 +8,23 @@ import {asyncHandler} from "../utils/asyncHandler.js"
 
 
 const createTweet = asyncHandler(async (req, res) => {
-    const {tweetcontent} = req.body
+    const {content} = req.body
 
-    if(!tweetcontent){
+    if(!content){
         throw new ApiError(400,"tweetContent is needed");
     }
    const tweetCreated =  await Tweet.create({
         owner:req.user?._id,
-        content:tweetcontent,
+        content ,
     })
  
     if(!tweetCreated){
         throw new ApiError(400,"tweet created problem")
     }
 
-    return res.status(200).json(
+    return res.status(200)
+    .render("home.ejs")
+    .json(
         new ApiResponse(
             200,
             tweetCreated,
@@ -47,7 +49,7 @@ const getUserTweets = asyncHandler(async (req, res) => {
   const userTweets =  await Tweet.aggregate([
     {
         $match:{
-            owner:new mongoose.Types.ObjectId (userId)
+            owner:new mongoose.Schema.Types.ObjectId(userId)
             
         }
     },
@@ -163,9 +165,18 @@ try {
 }
 })
 
+const getAllTweets = asyncHandler(async (req , res)=> {
+    const Alltweet =  await Tweet.find({})
+    console.log(Alltweet)
+
+    return res.render("home.ejs" , {Alltweet})
+    
+})
+
 export {
     createTweet,
     getUserTweets,
     updateTweet,
-    deleteTweet
+    deleteTweet ,
+    getAllTweets
 }

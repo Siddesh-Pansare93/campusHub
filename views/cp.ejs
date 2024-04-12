@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Hello, World!</title>
+    <link rel="stylesheet" href="/cp.css" />
+  </head>
+  <body>
+      <form class="change-password-form" action="http://localhost:3000/api/v1/users/change-password" method="post">
+  <h2 class="form-heading">Change Password</h2>
+  <div class="form-field">
+    <label for="old-password-input">Old Password</label>
+    <input name="oldPassword" type="password" id="old-password-input" placeholder="Enter Old Password" required>
+  </div>
+  <div class="form-field">
+    <label for="new-password-input">New Password</label>
+    <input name="newPassword" type="password" id="new-password-input" placeholder="Enter New Password" required>
+  </div>
+  <button class="submit-button" type="submit">Submit</button>
+</form>
+      <script src="script.js"></script>
+  </body>
+</html>

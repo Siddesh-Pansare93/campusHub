@@ -37,6 +37,10 @@ body {
     display:flex;
     margin-left: 25px;
 }
+
+.items-container img{
+    height : 4rem
+}
 .items-container a{
     margin: 10px 50px 10px  0;
     padding: 10px 20px; 
@@ -54,6 +58,7 @@ body {
     background-color: #ccc;
     color: black ;
 }
+
 
 .item-container-2 {
     display:flex;
@@ -99,7 +104,7 @@ body {
     left: 75rem;
     width: 10rem;
     height: 10rem;
-    background: url("../assets/logo.png");
+    background: url("https://res.cloudinary.com/siddeshpansare/image/upload/v1712565045/r849digupjofzjczl4lh.png");
     background-size: contain;
     background-repeat: no-repeat;
 }

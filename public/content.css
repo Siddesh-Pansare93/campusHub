@@ -1,0 +1,260 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #f0f0f0ea;
+}
+
+/* navbar */
+.nav-bar {
+    height:9vh;
+    width: 100%;
+    background: linear-gradient(to right , #00093c , #2d0b00);
+    position: fixed;
+    top: 0;
+    border-bottom: 1px solid #fff;
+    z-index:1 ;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-bar h4 {
+    padding: 20px 0px;
+    margin-right: 5rem;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 1700;
+}
+
+
+.items-container{
+    display:flex;
+    margin-left: 25px;
+}
+.items-container a{
+    margin: 10px 50px 10px  0;
+    padding: 10px 20px; 
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.items-container a::after {
+    content: '';
+    position: absolute;
+    width: 0%;
+    height: 2px; /* Adjust the underline height as needed */
+    top: 78%;
+    left: 0;
+    background-color:#fff; /* Initially transparent */
+    transition: width 0.3s ease; /* Added transition */
+}
+
+.items-container a:hover::after {
+    width: 100%;
+    background-color: #fff; /* Change to desired underline color */
+}
+
+
+.item-container-2 {
+    display:flex;
+    /* justify-content: space-between; */
+    margin-right: 0.5rem;
+}
+
+.item-container-2 a {
+    text-decoration: none;
+    margin-left: 1.5rem ; 
+    color :white ; 
+    font-size :1.2rem ;
+    padding: 0.5rem;
+}
+
+.item-container-2 a:hover {
+    background-color: #00093c;
+    border : 2px solid rgb(63, 81, 154) ;
+    border-radius:1.35rem;
+    
+}
+
+
+/* hero section */
+
+.hero-section{
+    display: flex;
+    background: linear-gradient(to right , #00093c , #2d0b00); /* Added linear gradient background */
+}
+
+.left-side{
+    width:40%;
+}
+.left-side h2{
+    position: fixed;
+    text-align: center;
+    color:#fff;
+    margin-left:500px;
+    padding-top: 250px;
+}
+
+.right-side{
+    border-left: 1px solid white;
+    width:50%;
+}
+.right-side p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    text-align: center;
+    display: block;
+    margin-bottom:28px ;
+    color: #fff;
+    padding-top: 35px;
+    padding-right: 15px;
+
+}
+.right-side h1{
+    font-size: 48px;
+    text-align: center;
+    margin-top: 170px;
+    color: #fff;
+    border-bottom: 1px solid white;
+}
+.right-side h3{
+    font-size: 40px;
+    /* text-align: center; */
+    color: #fff;;
+}
+.right-side h2{
+    font-size: 40px;
+    text-align: center;
+    color: #fff;
+    border-bottom: 1px solid white;
+}
+/* hr{
+    border: 1px solid white;
+} */
+
+/* Footer */
+footer{
+    width: 100%;
+    /* position: absolute; */
+    bottom: 0;
+    background: linear-gradient(to right , #00093c , #2d0b00);
+    color: #fff;
+    padding: 10px 0 30 px;
+    font-size: 13px;
+    line-height: 20px;
+}
+
+.row{
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.col{
+    flex-basis: 25%;
+    padding: 10px;
+    /* margin-top: 25px; */
+}
+.col:nth-child(2) , .col:nth-child(3){
+    flex-basis: 15%;
+
+}
+.logo{
+    width: 80px;
+    margin-bottom: 30px;
+}
+
+.col h3{
+    width: fit-content;
+    margin-bottom: 40px;
+    position: relative;
+
+}
+h3{
+    margin-top: 15px;
+
+}
+.E-mail{
+    width: fit-content;
+    border-bottom: 1px solid #ccc;
+    margin: 20px 0;
+}
+
+ul li{
+    list-style: none;
+    margin-bottom: 12px;
+
+}
+ul li a{
+    text-decoration: none;
+    color: #fff;
+
+}
+form{
+    padding-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;  /*email ke neeche ke line ke liye */
+    margin-bottom: 50px;
+}
+
+form .fa-regular{
+    font-size: 18px;
+    margin-right: 10px;
+
+}
+form input{
+    width: 100%;
+    background: transparent;
+    color: #fff;
+    border: 0;
+    outline: none;
+
+}
+
+form button{
+    background: transparent;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+
+}
+footer button .fa-solid{
+    font-size:16px;
+    color:#ccc;
+
+}
+.social-icons .fa-brands{
+    width: 40px;
+    height: 40px;
+    border-radius: 50px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 20px;
+    color: #000;
+    background: #fff;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+hr{
+    width: 90%;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    margin: 20px auto;
+}
+.copyright{
+    text-align: center;
+}

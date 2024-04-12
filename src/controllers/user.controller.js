@@ -82,9 +82,9 @@ const registerUser = asyncHandler(async (req ,res , next) => {
     }
 
 
-    next()
-    res.render("login.ejs" , {createdUser})
-    return res.status(201).json(
+    return res.status(201)
+    .render("login.ejs" , {createdUser})
+    .json(
         new ApiResponse(200 , createdUser , "User Registered Sucessfully")
     )
     
@@ -136,7 +136,7 @@ const loginUser = asyncHandler(async (req , res ) => {
     .status(200)
     .cookie( "accessToken" ,accessToken ,options )
     .cookie( "refreshToken" , refreshToken  ,options )
-    .render("home.ejs" , {loggedInuser})
+    .render("home.ejs" , { loggedInuser })
     .json(
         new ApiResponse (
             200 , loggedInuser  , "User Logged In Succesfully"
@@ -166,6 +166,7 @@ const logoutUser = asyncHandler(async( req ,res ) => {
     .status(200)
     .clearCookie( "accessToken" , options )
     .clearCookie( "refreshToken" , options )
+    .render("Aboutus.ejs")
     .json(
         new ApiResponse( 
             200 , "" , "User Logged Out"
@@ -223,9 +224,10 @@ const changeCurrentPassword = asyncHandler(async (req ,res) => {
     const {oldPassword  , newPassword }  = req.body
 
     const user = await User.findById(req.user?._id)
+    console.log(user)
     
 
-    const isPasswordCorrect = await user.isPasswordCorrect(oldPassword)
+    const isPasswordCorrect = await user.idPasswordCorrect(oldPassword)
 
     if (!isPasswordCorrect) {
         throw new ApiError (400 ,  "Invalid Old Password")
@@ -236,6 +238,7 @@ const changeCurrentPassword = asyncHandler(async (req ,res) => {
 
     return res
     .status(200)
+    .render("home.ejs")
     .json(
         new ApiResponse (200 , {} , "Password Changed Successfully")
     )
@@ -325,6 +328,5 @@ export {
     changeCurrentPassword ,
     getCurrentUser ,
     updateAccountDetails ,
-    updateProfilePicture ,
-    createPost
+    updateProfilePicture 
  }

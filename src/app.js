@@ -44,7 +44,7 @@ app.use("/api/v1/tweets", tweetRouter)
 
 
 
-// app.use(errorHandler)
+app.use(errorHandler)
 
 
 export {app} ;  

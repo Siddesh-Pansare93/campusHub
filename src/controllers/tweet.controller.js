@@ -8,7 +8,7 @@ import {asyncHandler} from "../utils/asyncHandler.js"
 
 
 const createTweet = asyncHandler(async (req, res) => {
-    const {content} = req.body
+    const { headline , content} = req.body
 
     if(!content){
         throw new ApiError(400,"tweetContent is needed");
@@ -16,14 +16,34 @@ const createTweet = asyncHandler(async (req, res) => {
    const tweetCreated =  await Tweet.create({
         owner:req.user?._id,
         content ,
+        headline
     })
  
     if(!tweetCreated){
         throw new ApiError(400,"tweet created problem")
     }
 
+    const tweets = await getAllTweets()
+    .then(async (tweets) => {
+        const updatedTweetList = []; // Initialize an array to store updated tweets
+        for (const tweet of tweets.Alltweet) {
+            // Asynchronous function to find user
+            const user = await User.findById(tweet.owner).select("-password -refreshToken");
+            console.log(user.username); // Logging the user name
+            
+            // Update the owner of the tweet
+            const updatedTweet = {
+                tweet,
+                owner: user.username
+            };
+            updatedTweetList.push(updatedTweet); // Push the updated tweet to the array
+        }
+        console.log(updatedTweetList)
+        return updatedTweetList; // Return the array of updated tweets
+    });
+
     return res.status(200)
-    .render("home.ejs")
+    .render("home.ejs" , {tweets})
     .json(
         new ApiResponse(
             200,
@@ -165,13 +185,13 @@ try {
 }
 })
 
-const getAllTweets = asyncHandler(async (req , res)=> {
+const getAllTweets = (async (req , res)=> {
     const Alltweet =  await Tweet.find({})
-    console.log(Alltweet)
-
-    return res.render("home.ejs" , {Alltweet})
     
+    return { Alltweet }
 })
+
+
 
 export {
     createTweet,

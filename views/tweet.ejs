@@ -15,8 +15,10 @@
     <div class="createPost">
             <form method="post" action="http://localhost:3000/api/v1/tweets/create">
             <h3>Create Tweet</h3>
-            <hr>
-            <input type="text" name="content">
+            
+            <input class="headline" type="text" placeholder="Enter Tweet Headline" autocomplete="off" name="headline">
+            
+            <input class="content" type="text" name="content" autocomplete="off" placeholder=" Tweet Content Goes Here ">
             
             <button>Post</button>
             </div>

@@ -249,6 +249,7 @@ hr {
 .posttext h4 {
     margin: 4px 10px;
     color: white;
+    font-weight: 700;
 }
 /* .postcard:hover{
     background-color: linear-gradient(to left, #09f7ef, #43271e);
@@ -258,11 +259,12 @@ hr {
     border-radius: 25px;
     display: flex;
     justify-content: center;
+    margin: 2rem  0;
 }
 img {
     width: 600px;
     height: 440px;
-    padding: 1px 24px;
+    padding: 1px 0;
     border-radius: 44px;
     object-fit: contain;
     /* background-color: black; */
@@ -366,8 +368,11 @@ button:active{
 .user a{
     text-decoration: none;
     color: white;
-    padding-top: 5.5px;
-    margin: 2px;
+    /* padding-top: 5.5px; */
+    margin: 0.3rem 0rem 0rem  1rem ;
+    height: 2rem ; 
+    width:5rem ; 
+    font-size: 1rem;
 }
 p{
     color: white;

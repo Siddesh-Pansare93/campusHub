@@ -14,7 +14,8 @@
     <nav class="navbar">
         <div class="container">
             <div class="logo">
-                <img src="https://res.cloudinary.com/siddeshpansare/image/upload/v1712565045/r849digupjofzjczl4lh.png" alt="Company Logo">
+                <img src="https://res.cloudinary.com/siddeshpansare/image/upload/v1712565045/r849digupjofzjczl4lh.png"
+                    alt="Company Logo">
             </div>
             <div class="search-box">
                 <!-- <i class="fa-solid fa-magnifying-glass"></i> -->
@@ -26,15 +27,15 @@
                 <button class="CP"><i class="fa-solid fa-plus"></i></button>
                 <div class="dropdown1">
                     <a href="http://localhost:3000/api/v1/tweets/create">Create Tweet</a>
-                    <a href="post.html">Create Post</a>
+                    <!-- <a href="http://localhost:3000/api/v1/tweets/createPost">Create Post</a> -->
                 </div>
                 <div class="dropdown">
                     <button onclick="myFunction()" class="dropbtn"><i id="dropdownIcon" class="fa-solid fa-user"></i>
                     </button>
                     <div id="myDropdown" class="dropdown-content">
                         <a href="#">Change Profile</a>
-                            <a href="http://localhost:3000/api/v1/users/change-password">Change Password</a>
-                        
+                        <a href="http://localhost:3000/api/v1/users/change-password">Change Password</a>
+
                         <a href="http://localhost:3000/api/v1/users/logout">log out</a>
 
                     </div>
@@ -99,10 +100,8 @@
                 </div>
                 <div class="home">
                     <i class="fa-solid fa-anchor-lock"></i>
-                    <li>Privacy Policy</li>
+                    <li><a href="http://localhost:3000/api/v1/users/privacyPolicy">Privacy Policy</a></li>
                 </div>
-
-
             </div>
         </div>
 
@@ -112,7 +111,8 @@
         <div class="postpanel">
             <div class="posttext">
                 <div class="user">
-                    <img src="https://res.cloudinary.com/siddeshpansare/image/upload/v1712567761/kfx88ts6zxocqjibnxzs.jpg" alt="user">
+                    <img src="https://res.cloudinary.com/siddeshpansare/image/upload/v1712567761/kfx88ts6zxocqjibnxzs.jpg"
+                        alt="user">
                     <a href="#">User123</a>
                 </div>
                 <h4>Civic Sense Northeast India</h4>
@@ -152,7 +152,8 @@
             <hr>
             <div class="postcard">
                 <div class="user">
-                    <img src="https://res.cloudinary.com/siddeshpansare/image/upload/v1712567761/kfx88ts6zxocqjibnxzs.jpg" alt="user">
+                    <img src="https://res.cloudinary.com/siddeshpansare/image/upload/v1712567761/kfx88ts6zxocqjibnxzs.jpg"
+                        alt="user">
                     <a href="#">User123</a>
                 </div>
                 <h4>Civic Sense Northeast India</h4>
@@ -195,7 +196,8 @@
 
             <div class="posttext">
                 <div class="user">
-                    <img src="https://res.cloudinary.com/siddeshpansare/image/upload/v1712567761/kfx88ts6zxocqjibnxzs.jpg" alt="user">
+                    <img src="https://res.cloudinary.com/siddeshpansare/image/upload/v1712567761/kfx88ts6zxocqjibnxzs.jpg"
+                        alt="user">
                     <a href="#">User123</a>
                 </div>
                 <h4> Water Crisis in Bangalore </h4>
@@ -237,10 +239,11 @@
             </div>
 
             <hr>
-            
+
             <div class="postcard">
                 <div class="user">
-                    <img src="https://res.cloudinary.com/siddeshpansare/image/upload/v1712567761/kfx88ts6zxocqjibnxzs.jpg" alt="user">
+                    <img src="https://res.cloudinary.com/siddeshpansare/image/upload/v1712567761/kfx88ts6zxocqjibnxzs.jpg"
+                        alt="user">
                     <a href="#">User123</a>
                 </div>
                 <h4>Kohli scored Joint Slowest century in IPL History (67 balls)</h4>
@@ -281,7 +284,50 @@
             <hr>
             <div class="postcard">
                 <div class="user">
-                    <img src="https://res.cloudinary.com/siddeshpansare/image/upload/v1712567761/kfx88ts6zxocqjibnxzs.jpg" alt="user">
+                    <img src="https://res.cloudinary.com/siddeshpansare/image/upload/v1712567761/kfx88ts6zxocqjibnxzs.jpg"
+                        alt="user">
+                    <a href="#">User123</a>
+                </div>
+                <h4>Kohli scored Joint Slowest century in IPL History (67 balls)</h4>
+                <div class="center">
+                    <img src="https://preview.redd.it/kohli-scored-joint-slowest-century-in-ipl-history-67-balls-v0-pryn6opxovsc1.jpeg?auto=webp&s=03cb6dcc9cd9d41e1e09a6feea86d62728522780"
+                        alt="POST">
+                </div>
+                <div class="interaction">
+                    <span class="interaction1">
+                        <button class="button1" onclick="changeColor1()"><i
+                                class="fa-regular fa-thumbs-up"></i></button>
+                        <span>
+                            <h6>5.67K</h6>
+                        </span>
+                        <button class="button2" onclick="changeColor2()"><i
+                                class="fa-regular fa-thumbs-down"></i></button>
+                    </span>
+                    <span class="interaction2">
+                        <button><i class="fa-regular fa-comment"></i></button>
+                        <span>
+                            <h6>299</h6>
+                        </span>
+                    </span>
+                    <!-- <span class="interaction2">
+                    <button><i class="fa-solid fa-share"></i></i></button>
+                    <span>
+                        <h6>Share</h6>
+                    </span>
+                </span> -->
+                    <span class="interaction2">
+                        <button><i class="fa-regular fa-bookmark"></i></i></button>
+                        <span>
+                            <h6>Save</h6>
+                        </span>
+                    </span>
+                </div>
+            </div>
+            <hr>
+            <div class="postcard">
+                <div class="user">
+                    <img src="https://res.cloudinary.com/siddeshpansare/image/upload/v1712567761/kfx88ts6zxocqjibnxzs.jpg"
+                        alt="user">
                     <a href="#">User123</a>
                 </div>
                 <h4>When was the last time an Indian cricketer was booed in India?</h4>
@@ -322,7 +368,8 @@
             <hr>
             <div class="postcard">
                 <div class="user">
-                    <img src="https://res.cloudinary.com/siddeshpansare/image/upload/v1712567761/kfx88ts6zxocqjibnxzs.jpg" alt="user">
+                    <img src="https://res.cloudinary.com/siddeshpansare/image/upload/v1712567761/kfx88ts6zxocqjibnxzs.jpg"
+                        alt="user">
                     <a href="#">User123</a>
                 </div>
                 <h4>Copium for all my homies who didn't end up in good colleges and reality check for all IIT dickriders
@@ -361,9 +408,11 @@
                 </div>
             </div>
             <hr>
+
             <div class="postcard">
                 <div class="user">
-                    <img src="https://res.cloudinary.com/siddeshpansare/image/upload/v1712567761/kfx88ts6zxocqjibnxzs.jpg" alt="user">
+                    <img src="https://res.cloudinary.com/siddeshpansare/image/upload/v1712567761/kfx88ts6zxocqjibnxzs.jpg"
+                        alt="user">
                     <a href="#">User123</a>
                 </div>
                 <h4>If the same Satya would have stayed over, maybe he would have created a mini Microsoft in India,
@@ -402,53 +451,64 @@
                 </div>
             </div>
             <hr>
-            <div class="posttext">
-                <div class="user">
-                    <img src="https://res.cloudinary.com/siddeshpansare/image/upload/v1712567761/kfx88ts6zxocqjibnxzs.jpg" alt="user">
-                    <a href="#">User123</a>
-                </div>
-                <h4>What companies will rise or fall after election?</h4>
-                <!-- <img src="https://preview.redd.it/civic-sense-northeast-india-v0-r8phsr5a50rc1.jpeg?auto=webp&s=addb5b3398a343a8adcd65fa08ba54f1d95e779b" -->
-                <!-- alt="POST"> -->
-                <p> I am am curious about how the stock market will rise or fall depending upon the party that gets elected? People who have a fair understanding of politics and have seen the stock market play out for decades, do chime in.
 
-                    BJP - Adani, Reliance, Defense, Renewables, construction
-                    
-                    Congress - Maybe more small, medium enterprises since their manifesto mentioned more Make in India. Not sure which companies though.
-                    
-                    AAP - Frankly no idea </p>
-                <div class="interaction">
-                    <span class="interaction1">
-                        <button class="button1" onclick="changeColor1()"><i
-                                class="fa-regular fa-thumbs-up"></i></button>
-                        <span>
-                            <h6>5.67K</h6>
+            <% for (tweet of tweets) { %>
+                <div class="posttext">
+                    <div class="user">
+                        <img src="https://res.cloudinary.com/siddeshpansare/image/upload/v1712567761/kfx88ts6zxocqjibnxzs.jpg"
+                            alt="user">
+                        <a href="#">
+                            <%= tweet.owner %>
+                        </a>
+                    </div>
+                    <h4>
+                        <%= tweet.tweet.headline %>
+                    </h4>
+                    <!-- <img src="https://preview.redd.it/civic-sense-northeast-india-v0-r8phsr5a50rc1.jpeg?auto=webp&s=addb5b3398a343a8adcd65fa08ba54f1d95e779b" -->
+                    <!-- alt="POST"> -->
+                    <p>
+                        <%= tweet.tweet.content %>
+                    </p>
+                    <div class="interaction">
+                        <span class="interaction1">
+                            <button class="button1" onclick="changeColor1()"><i
+                                    class="fa-regular fa-thumbs-up"></i></button>
+                            <span>
+                                <h6>5.67K</h6>
+                            </span>
+                            <button class="button2" onclick="changeColor2()"><i
+                                    class="fa-regular fa-thumbs-down"></i></button>
                         </span>
-                        <button class="button2" onclick="changeColor2()"><i
-                                class="fa-regular fa-thumbs-down"></i></button>
-                    </span>
-                    <span class="interaction2">
-                        <button><i class="fa-regular fa-comment"></i></button>
-                        <span>
-                            <h6>299</h6>
+                        <span class="interaction2">
+                            <button><i class="fa-regular fa-comment"></i></button>
+                            <span>
+                                <h6>299</h6>
+                            </span>
                         </span>
-                    </span>
-                    <!-- <span class="interaction2">
+                        <!-- <span class="interaction2">
                         <button><i class="fa-solid fa-share"></i></i></button>
                         <span>
                             <h6>Share</h6>
                         </span>
                     </span> -->
-                    <span class="interaction2">
-                        <button><i class="fa-regular fa-bookmark"></i></i></button>
-                        <span>
-                            <h6>Save</h6>
+                        <span class="interaction2">
+                            <button><i class="fa-regular fa-bookmark"></i></i></button>
+                            <span>
+                                <h6>Save</h6>
+                            </span>
                         </span>
-                    </span>
+
+
+
+                    </div>
                 </div>
-            </div>
+                <hr>
+                <% } %>
+
+
 
         </div>
+
 
 </body>
 <script src="/home.js"></script>

@@ -19,4 +19,8 @@ const tweetForm = (req , res) =>{
     res.render("tweet.ejs")
 }
 
-export {registerForm , loginForm , changepasswordForm , tweetForm}
+const updateProfilePictureForm = (req ,res)=> {
+    res.render("post.ejs")
+}
+
+export {registerForm , loginForm , changepasswordForm , tweetForm , updateProfilePictureForm}

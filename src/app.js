@@ -21,6 +21,11 @@ app.use(express.static("public"));
 app.set("View engine" ,"ejs")
 // app.set("views" , path.join(__dirname , "/views")); 
 
+app.use((err , req , res , next ) => {
+    res.send("Something went wrong")
+})
+
+
 
 app.use(cookieParser())
 
@@ -28,6 +33,7 @@ app.use(cookieParser())
 // importing routes
 import userRouter from "./routes/user.route.js"
 import tweetRouter from "./routes/tweet.route.js"
+import { errorHandler } from "./middlewares/errorHandler.middleware.js";
 
 
 
@@ -35,5 +41,10 @@ import tweetRouter from "./routes/tweet.route.js"
 
 app.use("/api/v1/users" , userRouter)
 app.use("/api/v1/tweets", tweetRouter)
+
+
+
+// app.use(errorHandler)
+
 
 export {app} ;  
